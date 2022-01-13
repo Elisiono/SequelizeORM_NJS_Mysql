@@ -25,6 +25,12 @@ class PessoasServices extends Services {
         })
     }
 
+    async pegaMatriculaPorEstudante(where = {}){
+        const matriculas = await database[this.nomeDoModelo]
+            .findOne({where: { ...where }})
+        return matriculas.getAulasMatriculadas()
+    }
+
 
 }
 
